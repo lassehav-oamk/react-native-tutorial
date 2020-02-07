@@ -5,8 +5,12 @@ export default class StyleDemo extends Component {
   render() {
     return (
       <View>
-        <Text style={ { color: 'green', fontSize: 36 } }>Inline styled text</Text>
-        <Text style={ styles.exampleStyle }>Stylesheet styled text</Text>
+        <Text style={ { color: 'green', fontSize: 36 } }>
+          Inline styled text
+        </Text>
+        <Text style={ styles.exampleStyle }>
+          Stylesheet styled text
+        </Text>
       </View>
     )
   }

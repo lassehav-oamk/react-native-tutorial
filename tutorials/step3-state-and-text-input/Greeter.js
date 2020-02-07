@@ -24,7 +24,9 @@ export default class Greeter extends Component {
           onChangeText={ this.setName }
           value={this.state.text}>
         </TextInput>
-        { this.state.greeterName == "" ?  null : <Text>Greetings {this.state.greeterName}</Text>}
+        { this.state.greeterName == "" ?
+          null :
+          <Text>Greetings {this.state.greeterName}</Text> }
       </View>
     )
   }
