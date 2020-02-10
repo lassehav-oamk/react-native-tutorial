@@ -6,6 +6,7 @@ import Greeter from './tutorials/step3-state-and-text-input/Greeter';
 import StyleDemo from './tutorials/step4-style/StyleDemo';
 import Dimensions from "./tutorials/step5-layout/1Dimensions";
 import FlexDirectionAndJustify from "./tutorials/step5-layout/2FlexDirectionAndJustify";
+import ImageDemo from './tutorials/step6-images/ImageDemo';
 
 export default function App() {
 
@@ -24,7 +25,12 @@ export default function App() {
   //output = <Dimensions></Dimensions>;
 
   // Layout example 2
-  output = <FlexDirectionAndJustify></FlexDirectionAndJustify>;
+  //output = <FlexDirectionAndJustify></FlexDirectionAndJustify>;
+
+  // Image example
+  output = <View style={ styles.container }>
+    <ImageDemo></ImageDemo>
+  </View>
 
 
   return output;
@@ -38,5 +44,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 18
   },
 });
