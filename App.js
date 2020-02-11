@@ -10,19 +10,20 @@ import ImageDemo from './tutorials/step6-images/ImageDemo';
 import skier from './assets/cyprien-delaporte-xe46njOok-A-unsplash.jpg'
 import mountains  from './assets/alexandra-avelar-O6RLx-ECnSw-unsplash.jpg'
 import IconMix from './tutorials/step7-icons/IconMix';
+import SpotifyDemo from './components/spotify/SpotifyDemo';
 
 export default function App() {
 
   let output;
   // Example set 1
-  output = (
+  /*output = (
     <View style={styles.container}>
       <HelloWorld></HelloWorld>
       <CustomText value="This is data passed by props to the component"></CustomText>
       <Greeter></Greeter>
       <StyleDemo></StyleDemo>
     </View>
-  );
+  );*/
 
   // Layout example 1
   //output = <Dimensions></Dimensions>;
@@ -45,6 +46,9 @@ export default function App() {
     <IconMix></IconMix>
   </View>);
   */
+
+  // Spotify UI example
+  output = <SpotifyDemo></SpotifyDemo>
 
   return output;
 
