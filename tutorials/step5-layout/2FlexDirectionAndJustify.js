@@ -8,7 +8,7 @@ export default class FlexDirectionAndJustify extends Component {
         flex: 1,
         paddingTop: 20,
         flexDirection: 'column', // MAIN AXIS
-        justifyContent: 'space-around', // MAIN AXIS - Test out all the values
+        justifyContent: 'space-evenly', // MAIN AXIS - Test out all the values
         alignItems: 'baseline' // CROSS AXIS
       }}>
         <Text style={{  width: '100%', borderWidth: 1, borderColor: 'black' }}>

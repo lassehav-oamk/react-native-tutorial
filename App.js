@@ -11,11 +11,13 @@ import skier from './assets/cyprien-delaporte-xe46njOok-A-unsplash.jpg'
 import mountains  from './assets/alexandra-avelar-O6RLx-ECnSw-unsplash.jpg'
 import IconMix from './tutorials/step7-icons/IconMix';
 import SpotifyDemo from './components/spotify/SpotifyDemo';
+import StackNavigationDemo from './tutorials/step8-navigation/StackNavigation';
+import TabNavigationDemo from './tutorials/step8-navigation/TabNavigation'
 
 export default function App() {
 
   let output;
-  // Example set 1
+  // Steps 1-4
   /*output = (
     <View style={styles.container}>
       <HelloWorld></HelloWorld>
@@ -25,13 +27,13 @@ export default function App() {
     </View>
   );*/
 
-  // Layout example 1
+  // Step 5 - Layout example 1
   //output = <Dimensions></Dimensions>;
 
-  // Layout example 2
+  // Step 5 - Layout example 2
   //output = <FlexDirectionAndJustify></FlexDirectionAndJustify>;
 
-  // Image example
+  // Step 6 - Image example
   /*output = (
     <View style={ styles.container }>
       <ImageDemo style={{ flex: 1}} text={"Hello"} image={ skier }></ImageDemo>
@@ -40,7 +42,7 @@ export default function App() {
     </View>
   );*/
 
-  // Icons example
+  // Step 7 - Icons example
   /*
   output = (<View style={ styles.container }>
     <IconMix></IconMix>
@@ -48,11 +50,21 @@ export default function App() {
   */
 
   // Spotify UI example
-  output = <SpotifyDemo></SpotifyDemo>
+  //output = <SpotifyDemo></SpotifyDemo>
+
+  // Step8 - Navigation Stack
+  output = (
+    <View style={ styles.container }>
+      <StackNavigationDemo></StackNavigationDemo>
+    </View>);
+
+  // Step8 - Navigation Tab
+  /*output = (
+    <View style={ styles.container }>
+      <TabNavigationDemo></TabNavigationDemo>
+    </View>);*/
 
   return output;
-
-
 }
 
 const styles = StyleSheet.create({
