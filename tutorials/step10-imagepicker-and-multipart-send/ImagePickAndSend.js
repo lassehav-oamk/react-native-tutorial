@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, TouchableOpacity } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 
 export default class ImagePickAndSend extends Component {
