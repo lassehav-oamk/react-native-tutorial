@@ -15,7 +15,8 @@ const CalculatorInput = (props) => {
             placeholder="2"
             onChangeText={ (value) => { props.onValueChange('A', value) }}
             value={ props.valueA }
-            keyboardType={'numeric'}>
+            keyboardType={'numeric'}
+            returnKeyType='done'>
           </TextInput>
         </View>
         <View style={{ flex:1, justifyContent: 'flex-end', alignItems: 'center'}}>
