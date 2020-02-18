@@ -14,6 +14,7 @@ import SpotifyDemo from './components/spotify/SpotifyDemo';
 import StackNavigationDemo from './tutorials/step8-navigation/StackNavigation';
 import TabNavigationDemo from './tutorials/step8-navigation/TabNavigation';
 import TabDataNavigation from './tutorials/step9a-navigation-with-data-props/TabDataNavigation';
+import ImagePickAndSend from './tutorials/step10-imagepicker-and-multipart-send/ImagePickAndSend';
 
 export default function App() {
 
@@ -66,10 +67,16 @@ export default function App() {
     </View>);*/
 
   // Step9 - Navigation with data and debugging
-  output = (
+  /*output = (
     <View style={ styles.container }>
       <TabDataNavigation></TabDataNavigation>
+    </View>);*/
+
+  output = (
+    <View style={ styles.container }>
+      <ImagePickAndSend></ImagePickAndSend>
     </View>);
+
 
   return output;
 }
