@@ -7,12 +7,13 @@ import StyleDemo from './tutorials/step4-style/StyleDemo';
 import Dimensions from "./tutorials/step5-layout/1Dimensions";
 import FlexDirectionAndJustify from "./tutorials/step5-layout/2FlexDirectionAndJustify";
 import ImageDemo from './tutorials/step6-images/ImageDemo';
-import skier from './assets/cyprien-delaporte-xe46njOok-A-unsplash.jpg'
-import mountains  from './assets/alexandra-avelar-O6RLx-ECnSw-unsplash.jpg'
+import skier from './assets/cyprien-delaporte-xe46njOok-A-unsplash.jpg';
+import mountains  from './assets/alexandra-avelar-O6RLx-ECnSw-unsplash.jpg';
 import IconMix from './tutorials/step7-icons/IconMix';
 import SpotifyDemo from './components/spotify/SpotifyDemo';
 import StackNavigationDemo from './tutorials/step8-navigation/StackNavigation';
-import TabNavigationDemo from './tutorials/step8-navigation/TabNavigation'
+import TabNavigationDemo from './tutorials/step8-navigation/TabNavigation';
+import TabDataNavigation from './tutorials/step9a-navigation-with-data-props/TabDataNavigation';
 
 export default function App() {
 
@@ -53,16 +54,22 @@ export default function App() {
   //output = <SpotifyDemo></SpotifyDemo>
 
   // Step8 - Navigation Stack
-  output = (
+  /*output = (
     <View style={ styles.container }>
       <StackNavigationDemo></StackNavigationDemo>
-    </View>);
+    </View>);*/
 
   // Step8 - Navigation Tab
   /*output = (
     <View style={ styles.container }>
       <TabNavigationDemo></TabNavigationDemo>
     </View>);*/
+
+  // Step9 - Navigation with data and debugging
+  output = (
+    <View style={ styles.container }>
+      <TabDataNavigation></TabDataNavigation>
+    </View>);
 
   return output;
 }
