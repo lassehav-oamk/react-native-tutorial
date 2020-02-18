@@ -72,9 +72,15 @@ export default function App() {
       <TabDataNavigation></TabDataNavigation>
     </View>);*/
 
+  // Step 10 - Image picker and multipart sending to server
+  // For testing you can for example start class3/multipart-multer-example project from
+  // https://github.com/lassehav-oamk/web-interfaces-2020 repository. 
+  // To test this you need to modify the targetURI below to match your machine IP.
+  // You can see the IP of your machine for example in the metro server tab in browser, which opens
+  // when you execute 'expo start' command.  
   output = (
     <View style={ styles.container }>
-      <ImagePickAndSend></ImagePickAndSend>
+      <ImagePickAndSend targetURI='http://10.4.3.96:3000/example'></ImagePickAndSend>
     </View>);
 
 
