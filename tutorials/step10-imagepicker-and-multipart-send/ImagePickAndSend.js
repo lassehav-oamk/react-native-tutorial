@@ -34,7 +34,8 @@ export default class ImagePickAndSend extends Component {
     let postForm = new FormData();
     postForm.append('myFiles', {
       uri: pickerResult.uri,
-      name: fileName      
+      name: fileName,
+      type: 'image/jpeg'
     });
     postForm.append('foo', 'bar');
 
