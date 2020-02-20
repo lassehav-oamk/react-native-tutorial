@@ -15,6 +15,7 @@ import StackNavigationDemo from './tutorials/step8-navigation/StackNavigation';
 import TabNavigationDemo from './tutorials/step8-navigation/TabNavigation';
 import TabDataNavigation from './tutorials/step9a-navigation-with-data-props/TabDataNavigation';
 import ImagePickAndSend from './tutorials/step10-imagepicker-and-multipart-send/ImagePickAndSend';
+import AuthDemo from './tutorials/step11-jwt-auth/AuthDemo';
 
 export default function App() {
 
@@ -55,10 +56,10 @@ export default function App() {
   //output = <SpotifyDemo></SpotifyDemo>
 
   // Step8 - Navigation Stack
-  /*output = (
-    <View style={ styles.container }>
-      <StackNavigationDemo></StackNavigationDemo>
-    </View>);*/
+  // output = (
+  //   <View style={ styles.container }>
+  //     <StackNavigationDemo></StackNavigationDemo>
+  //   </View>);
 
   // Step8 - Navigation Tab
   /*output = (
@@ -78,11 +79,15 @@ export default function App() {
   // To test this you need to modify the targetURI below to match your machine IP.
   // You can see the IP of your machine for example in the metro server tab in browser, which opens
   // when you execute 'expo start' command.  
-  output = (
+  /*output = (
     <View style={ styles.container }>
-      <ImagePickAndSend targetURI='http://10.4.3.96:3000/example'></ImagePickAndSend>
-    </View>);
+      <ImagePickAndSend targetURI='http://3.85.144.102/example'></ImagePickAndSend>
+    </View>);*/
 
+  output = (
+  <View style={ styles.container }>
+    <AuthDemo></AuthDemo>
+  </View>)
 
   return output;
 }
