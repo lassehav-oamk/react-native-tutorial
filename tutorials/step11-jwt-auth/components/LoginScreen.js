@@ -1,35 +1,63 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableHighlight, Button, StyleSheet } from 'react-native'
+import { Base64 } from 'js-base64'
+const config = require('../config.json');
 
-const LoginScreen = () => {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+
+
+const LoginScreen = (props) => {
+  const [userName, setUserName] = useState("tester");
+  const [password, setPassword] = useState("testerpassword");
+
+  function loginClick() {
+    fetch(config.serverUri + '/loginForJWT', {
+      method: 'GET',
+      headers: {
+        "Authorization": "Basic " + Base64.encode(userName + ":" + password)
+      }
+    })
+    .then(response => {
+      if (response.ok == false) {
+        throw new Error("HTTP Code " + response.status + " - " + JSON.stringify(response.json()));
+      }
+      return response.json();
+    })
+    .then(json => {
+      console.log("Login successful")
+      console.log("Received following JSON");
+      console.log(json);
+
+      props.onLoginReceiveJWT(json.token);
+    })
+    .catch(error => {
+      console.log("Error message:")
+      console.log(error.message)
+    });
+  }
 
   return (
     <View style={ styles.screen }>
       <Text style={ styles.header }>User Login</Text>
       <Text style={ styles.text }>Username</Text>
-      <TextInput 
+      <TextInput
         style={ styles.input }
-        value={ userName } 
-        placeholder="johndoe" 
+        value={ userName }
+        placeholder="johndoe"
         onChangeText={ value => setUserName(value)}
       />
       <Text style={ styles.text }>Password</Text>
-      <TextInput 
+      <TextInput
         style={ styles.input }
-        value={ password } 
+        value={ password }
         placeholder="password"
         onChangeText={ value => setPassword(value)}
       />
-      <TouchableHighlight>
-        <View style={ styles.loginButton }>
-          <Text style={ styles.loginButtonText }>Login</Text>
+      <TouchableHighlight onPress={ () => loginClick() }>
+        <View style={ styles.primaryButton }>
+          <Text style={ styles.primaryButtonText }>Login</Text>
         </View>
       </TouchableHighlight>
-      <Button title="Sign up" />
-        
-      
+      <Button title="Sign up" color="#000000" onPress={ () => props.navigation.navigate('Signup') } />
     </View>
   )
 }
@@ -37,8 +65,8 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   screen: {
     backgroundColor: 'rgb(51, 153, 255)',
-    flex: 1, 
-    justifyContent: 'center', 
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center'
   },
   header: {
@@ -61,7 +89,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 20
   },
-  loginButton: {
+  primaryButton: {
     backgroundColor: 'rgb(0, 153, 51)',
     height: 60,
     width: 200,
@@ -72,7 +100,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 10
   },
-  loginButtonText: {
+  primaryButtonText: {
     color: 'white',
     fontSize: 20
 
