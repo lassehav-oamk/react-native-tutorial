@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, Button, TextInput, TouchableHighlight } from 'react-native'
 import axios from 'axios';
-const config = require('../config.json');
 
 const SignUpScreen = (props) => {
 
@@ -11,7 +10,7 @@ const SignUpScreen = (props) => {
 
   function signupPressed()
   {
-    fetch(config.serverUri + '/registerBasic', {
+    fetch(props.apiURI + '/registerBasic', {
         method: 'POST',
         body: JSON.stringify({
           username: username,

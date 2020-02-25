@@ -3,19 +3,18 @@ import { Text, View, ActivityIndicator } from 'react-native'
 import LoginScreen from './components/LoginScreen'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import View1 from './components/View1'
-import View2 from './components/View2'
-import View3 from './components/View3'
+
 import SignUpScreen from './components/SignUpScreen'
 import SignUpCompleted from './components/SignUpCompleted'
 import * as SecureStore from 'expo-secure-store'
 import LoadingScreen from './components/LoadingScreen'
+import TodoApp from './components/TodoApp'
 
 const Stack = createStackNavigator();
 
 export default class AuthDemo extends Component {
-  constructor(props)
-  {
+
+  constructor(props) {
     super(props);
     this.state = {
       isCheckingTokenStorage: true,
@@ -23,8 +22,7 @@ export default class AuthDemo extends Component {
     };
   }
 
-  componentDidMount()
-  {
+  componentDidMount() {
     // Check for stored JWT when the application loads
     SecureStore.getItemAsync('demoApplicationJWT')
       .then(response => {
@@ -44,9 +42,10 @@ export default class AuthDemo extends Component {
       .then(response => {
         console.log(response);
         this.setState({ activeJWT: responseJWT, isCheckingTokenStorage: false })
-      })
-    
+      })    
   }
+
+  
 
   authLogic = () => {
     const authScreens = (
@@ -57,7 +56,7 @@ export default class AuthDemo extends Component {
             headerShown: false,
           }}
         >
-          { props => <LoginScreen {...props} onLoginReceiveJWT={ this.onLoginReceiveJWT }></LoginScreen> }
+          { props => <LoginScreen {...props} onLoginReceiveJWT={ this.onLoginReceiveJWT } apiURI={ this.props.apiURI }></LoginScreen> }
         </Stack.Screen>
         <Stack.Screen
           name="Signup"
@@ -65,7 +64,7 @@ export default class AuthDemo extends Component {
             headerShown: false,
           }}
         >
-          { props => <SignUpScreen {...props}></SignUpScreen>}
+          { props => <SignUpScreen {...props} apiURI={ this.props.apiURI }></SignUpScreen>}
         </Stack.Screen>
         <Stack.Screen
           name="SignupCompleted"
@@ -79,12 +78,16 @@ export default class AuthDemo extends Component {
     );
 
     const app = (
-      <>
-      <Stack.Screen name="View1" component={View1} />
-      <Stack.Screen name="View2" component={View2} options={{ title: 'Title for View 2' }} />
-      <Stack.Screen name="View3" component={View3} />
-      </>
-    );
+      <Stack.Screen 
+        name="TodoApp" 
+        options={{
+          headerShown: false,
+        }}>
+          { props => <TodoApp {...props} jwt={ this.state.activeJWT } apiURI={ this.props.apiURI }></TodoApp>}
+      </Stack.Screen>
+    )
+
+    
 
     const checkingForTokenStorage = (
       <Stack.Screen name="Loading" component={LoadingScreen} />

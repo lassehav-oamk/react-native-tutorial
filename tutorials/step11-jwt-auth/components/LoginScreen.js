@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableHighlight, Button, StyleSheet } from 'react-native'
 import { Base64 } from 'js-base64'
-const config = require('../config.json');
 
 
 
@@ -10,7 +9,7 @@ const LoginScreen = (props) => {
   const [password, setPassword] = useState("testerpassword");
 
   function loginClick() {
-    fetch(config.serverUri + '/loginForJWT', {
+    fetch(props.apiURI + '/loginForJWT', {
       method: 'GET',
       headers: {
         "Authorization": "Basic " + Base64.encode(userName + ":" + password)
