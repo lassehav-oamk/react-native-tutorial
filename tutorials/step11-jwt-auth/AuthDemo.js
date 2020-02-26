@@ -11,6 +11,7 @@ import LoadingScreen from './components/LoadingScreen'
 import TodoApp from './components/TodoApp'
 
 const Stack = createStackNavigator();
+const secureStoreTokenName = "demoAppJWT2";
 
 export default class AuthDemo extends Component {
 
@@ -24,7 +25,7 @@ export default class AuthDemo extends Component {
 
   componentDidMount() {
     // Check for stored JWT when the application loads
-    SecureStore.getItemAsync('demoApplicationJWT')
+    SecureStore.getItemAsync(secureStoreTokenName)
       .then(response => {
         console.log("SecureStore.getItemAsync success")        
         this.setState({ activeJWT: response, isCheckingTokenStorage: false })
@@ -38,7 +39,7 @@ export default class AuthDemo extends Component {
   
   onLoginReceiveJWT = (responseJWT) => {
     // Deal with successful login by storing the token into secure store
-    SecureStore.setItemAsync('demoApplicationJWT', responseJWT)
+    SecureStore.setItemAsync(secureStoreTokenName, responseJWT)
       .then(response => {
         console.log(response);
         this.setState({ activeJWT: responseJWT, isCheckingTokenStorage: false })
@@ -83,7 +84,12 @@ export default class AuthDemo extends Component {
         options={{
           headerShown: false,
         }}>
-          { props => <TodoApp {...props} jwt={ this.state.activeJWT } apiURI={ this.props.apiURI }></TodoApp>}
+          { props => <TodoApp 
+                        {...props} 
+                        jwt={ this.state.activeJWT } 
+                        apiURI={ this.props.apiURI }
+                        onLogout={ this.onLogout }
+                      ></TodoApp>}
       </Stack.Screen>
     )
 
@@ -112,6 +118,12 @@ export default class AuthDemo extends Component {
       }
     }
     console.error('Incorrect authLogic function processing');
+  }
+
+  onLogout = () => {
+    console.log("Logout clicked");
+    this.setState({ activeJWT: null });
+    SecureStore.deleteItemAsync(secureStoreTokenName);
   }
 
   render() {

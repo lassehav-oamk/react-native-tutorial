@@ -75,7 +75,9 @@ export default class TodoApp extends Component {
   render() {
     return (
       <Stack.Navigator>
-        <Stack.Screen name="View1" component={View1} />
+        <Stack.Screen name="View1">
+          { props => <View1 {...props} onLogout={ this.props.onLogout }/>}
+        </Stack.Screen>
         <Stack.Screen name="Todos" options={{ title: 'Todo List' }} >    
           { props => <Todos {...props} todos={ this.state.todos } onTodoAdd={ this.onTodoAdd }/>}
         </Stack.Screen>

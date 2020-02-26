@@ -10,6 +10,10 @@ const View1 = (props) => {
         title="Go to Todo List View"
         onPress={() => props.navigation.navigate('Todos')}
       />
+      <Button
+        title="Logout"
+        onPress={ props.onLogout }
+      />
     </View>
   )
 }
