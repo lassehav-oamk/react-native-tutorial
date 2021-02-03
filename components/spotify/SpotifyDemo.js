@@ -55,7 +55,7 @@ export default class SpotifyDemo extends Component {
             </Playlist>
           </ScrollView>
         </LinearGradient>
-        <FooterControls></FooterControls>
+        <FooterControls />
       </View>
     )
   }

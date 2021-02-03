@@ -37,13 +37,13 @@ export default function App() {
   //output = <FlexDirectionAndJustify></FlexDirectionAndJustify>;
 
   // Step 6 - Image example
-  /*output = (
-    <View style={ styles.container }>
-      <ImageDemo style={{ flex: 1}} text={"Hello"} image={ skier }></ImageDemo>
-      <ImageDemo style={{ flex: 1}} text={"World"} image={ mountains }></ImageDemo>
+  // output = (
+  //   <View style={ styles.container }>
+  //     <ImageDemo style={{ flex: 1}} text={"Hello"} image={ skier }></ImageDemo>
+  //     <ImageDemo style={{ flex: 1}} text={"World"} image={ mountains }></ImageDemo>
 
-    </View>
-  );*/
+  //   </View>
+  // );
 
   // Step 7 - Icons example
   /*
