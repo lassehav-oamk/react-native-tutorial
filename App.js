@@ -21,14 +21,14 @@ export default function App() {
 
   let output;
   // Steps 1-4
-  /*output = (
+  output = (
     <View style={styles.container}>
       <HelloWorld></HelloWorld>
       <CustomText value="This is data passed by props to the component"></CustomText>
       <Greeter></Greeter>
       <StyleDemo></StyleDemo>
     </View>
-  );*/
+  );
 
   // Step 5 - Layout example 1
   //output = <Dimensions></Dimensions>;
@@ -75,10 +75,10 @@ export default function App() {
 
   // Step 10 - Image picker and multipart sending to server
   // For testing you can for example start class3/multipart-multer-example project from
-  // https://github.com/lassehav-oamk/web-interfaces-2020 repository. 
+  // https://github.com/lassehav-oamk/web-interfaces-2020 repository.
   // To test this you need to modify the targetURI below to match your machine IP.
   // You can see the IP of your machine for example in the metro server tab in browser, which opens
-  // when you execute 'expo start' command.  
+  // when you execute 'expo start' command.
   /*output = (
     <View style={ styles.container }>
       <ImagePickAndSend targetURI='http://3.85.144.102/example'></ImagePickAndSend>
@@ -89,12 +89,12 @@ export default function App() {
   // https://github.com/lassehav-oamk/api-authentications-demos
   // To test this you need to modify the targetURI below to match your machine IP.
   // You can see the IP of your machine for example in the metro server tab in browser, which opens
-  // when you execute 'expo start' command.  
+  // when you execute 'expo start' command.
 
-  output = (
-  <View style={ styles.container }>
-    <AuthDemo apiURI='http://10.4.3.136:3000'></AuthDemo>
-  </View>)
+  // output = (
+  // <View style={ styles.container }>
+  //   <AuthDemo apiURI='http://10.4.3.136:3000'></AuthDemo>
+  // </View>)
 
   return output;
 }
