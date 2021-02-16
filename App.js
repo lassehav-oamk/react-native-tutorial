@@ -17,18 +17,31 @@ import TabDataNavigation from './tutorials/step9a-navigation-with-data-props/Tab
 import ImagePickAndSend from './tutorials/step10-imagepicker-and-multipart-send/ImagePickAndSend';
 import AuthDemo from './tutorials/step11-jwt-auth/AuthDemo';
 
+import TestComponent from './components/TestComponent';
+import GreeterWithHooks from './tutorials/step3-state-and-text-input/GreeterWithHooks';
+
 export default function App() {
 
   let output;
   // Steps 1-4
-  output = (
-    <View style={styles.container}>
-      <HelloWorld></HelloWorld>
+  /*
+    <HelloWorld></HelloWorld>
       <CustomText value="This is data passed by props to the component"></CustomText>
-      <Greeter></Greeter>
+
       <StyleDemo></StyleDemo>
+  */
+  /*let demo = [];
+  for(let i = 0; i < 10; i++) {
+    demo.push(<TestComponent showThis={ i } otherProp={"Foo"}/>);
+  }
+
+*/
+  /*output = (
+    <View style={styles.container}>
+      <Text>Hello</Text>
+      <GreeterWithHooks />
     </View>
-  );
+  );*/
 
   // Step 5 - Layout example 1
   //output = <Dimensions></Dimensions>;
@@ -41,48 +54,44 @@ export default function App() {
   //   <View style={ styles.container }>
   //     <ImageDemo style={{ flex: 1}} text={"Hello"} image={ skier }></ImageDemo>
   //     <ImageDemo style={{ flex: 1}} text={"World"} image={ mountains }></ImageDemo>
-
   //   </View>
   // );
 
   // Step 7 - Icons example
-  /*
-  output = (<View style={ styles.container }>
-    <IconMix></IconMix>
-  </View>);
-  */
+  // output = (<View style={ styles.container }>
+  //   <IconMix></IconMix>
+  // </View>);
+
 
   // Spotify UI example
   //output = <SpotifyDemo></SpotifyDemo>
 
   // Step8 - Navigation Stack
-  // output = (
+  //  output = (
   //   <View style={ styles.container }>
   //     <StackNavigationDemo></StackNavigationDemo>
   //   </View>);
 
   // Step8 - Navigation Tab
-  /*output = (
-    <View style={ styles.container }>
-      <TabNavigationDemo></TabNavigationDemo>
-    </View>);*/
+  // output = (
+  //   <View style={ styles.container }>
+  //     <TabNavigationDemo></TabNavigationDemo>
+  //   </View>);
 
   // Step9 - Navigation with data and debugging
-  /*output = (
-    <View style={ styles.container }>
-      <TabDataNavigation></TabDataNavigation>
-    </View>);*/
+  // output = (
+  //   <View style={ styles.container }>
+  //     <TabDataNavigation></TabDataNavigation>
+  //   </View>);
 
   // Step 10 - Image picker and multipart sending to server
-  // For testing you can for example start class3/multipart-multer-example project from
-  // https://github.com/lassehav-oamk/web-interfaces-2020 repository.
-  // To test this you need to modify the targetURI below to match your machine IP.
-  // You can see the IP of your machine for example in the metro server tab in browser, which opens
-  // when you execute 'expo start' command.
-  /*output = (
+  // For testing you can for example use https://github.com/lassehav-oamk/image-upload-example-server repository.
+  // Recommend deploying that repository to heroku and then replace the targetURI with correct address
+
+  output = (
     <View style={ styles.container }>
-      <ImagePickAndSend targetURI='http://3.85.144.102/example'></ImagePickAndSend>
-    </View>);*/
+      <ImagePickAndSend targetURI='https://image-upload-example-server.herokuapp.com/upload' imageFormName='image'></ImagePickAndSend>
+    </View>);
 
   // Step 11 - Mobile client with JWT interacting with API
   // The API server intended to be used with this demo can be found from here
